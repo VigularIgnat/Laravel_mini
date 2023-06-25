@@ -1,0 +1,1 @@
+Wellcome<?php /**PATH C:\xampp\htdocs\domains\laravel\laravel.mini\resources\views/send.blade.php ENDPATH**/ ?>
