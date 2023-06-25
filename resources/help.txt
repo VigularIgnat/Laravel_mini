@@ -1,0 +1,31 @@
+Шпаргалка по запросам:
+----------------------
+
+
+$contact = new Contact;
+$data = [];
+
+$data = $contact->all();                                          // все записи
+$data[] = $contact->find(1);                                      // поиск по ID=1
+$data[] = $contact->inRandomOrder()->first();                     // первая случайная запись
+$data = $contact->inRandomOrder()->get();                         // все случайные записи
+$data = $contact->orderBy('id', 'asc')->get();                    // выборка с сортировкой
+$data = $contact->orderBy('id', 'asc')->take(1)->get();           // выборка 1 записи с сортировкой
+$data = $contact->orderBy('id', 'asc')->skip(1)->take(1)->get();  // пропускаем 1 запись, выборка 1 записи с сортировкой
+$data = $contact->where('id', '=', '1')->get();                   // выборка с условием
+
+return view('messages', ['data' => $data ]);
+
+ <p>{{$elem->email}}</p>
+            <p>{{$elem->sum}}</p>
+            <p><small>{{$elem->created_at}}</small></p>
+
+
+            @foreach($data as $elem)
+        <div class="alert alert-info">
+            <h3>{{ $elem->subject }}</h3>
+           
+
+            <a href="#"><button class="btn btn-warning">Детальніше</button></a>
+        </div>
+     @endforeach
